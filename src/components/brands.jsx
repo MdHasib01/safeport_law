@@ -6,7 +6,7 @@ import { SlBadge } from "react-icons/sl";
 
 const Brands = () => {
   return (
-    <div className="bg-[#408b82] overflow-hidden w-full">
+    <div className="bg-emerald-600 overflow-hidden w-full">
       <div className="container mx-auto py-8">
         <h1 className="font-bold text-lg md:text-xl lg:text-2xl text-white justify-center uppercase flex items-center gap-2 mb-6">
           <SlBadge className="text-yellow-500" /> Featured on top financial

@@ -18,13 +18,13 @@ const Banner = () => {
                 Send attorneys.
               </h2>
               <div className="flex lg:flex-col flex-row justify-center lg:justify-start gap-2 my-4">
-                <p className="font-bold text-gray-500 lg:text-[#408b82] lg:text-3xl ">
+                <p className="font-bold text-gray-500 lg:text-emerald-600 lg:text-3xl ">
                   50 States.
                 </p>
-                <p className="font-bold text-gray-500 lg:text-[#408b82] lg:text-3xl">
+                <p className="font-bold text-gray-500 lg:text-emerald-600 lg:text-3xl">
                   27 Attorneys.
                 </p>
-                <p className="font-bold text-gray-500 lg:text-[#408b82] lg:text-3xl ">
+                <p className="font-bold text-gray-500 lg:text-emerald-600 lg:text-3xl ">
                   Zero Nonsense.
                 </p>
               </div>
@@ -48,11 +48,11 @@ const Banner = () => {
             </div>
           </div>
           <div className=" bg-white px-8 py-4 rounded-lg shadow-xl">
-            <h2 className="text-center text-[#408b82] font-bold text-3xl mb-2">
+            <h2 className="text-center text-emerald-600 font-bold text-3xl mb-2">
               Get started today!
             </h2>
             <p className="text-sm text-gray-500 mb-2 flex items-center justify-center gap-2">
-              <FaLock className="text-[#408b82]" />
+              <FaLock className="text-emerald-600" />
               We take your data protection seriously
             </p>
             <form>

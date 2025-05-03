@@ -17,7 +17,7 @@ const Ourprocess = () => {
             <div className="bg-red-200 w-15 h-15 rounded-full flex justify-center  items-center">
               <p className="text-orange-700 font-bold text-3xl">1</p>
             </div>
-            <h2 className="text-[#408b82] font-bold text-3xl text-center my-4">
+            <h2 className="text-emerald-600 font-bold text-3xl text-center my-4">
               Setting Up
             </h2>
             <p className="text-gray-900 text-xl text-center">
@@ -32,7 +32,7 @@ const Ourprocess = () => {
             <div className="bg-red-200 w-15 h-15 rounded-full flex justify-center  items-center">
               <p className="text-orange-700 font-bold text-3xl">1</p>
             </div>
-            <h2 className="text-[#408b82] font-bold text-3xl text-center my-4">
+            <h2 className="text-emerald-600 font-bold text-3xl text-center my-4">
               Reviewing
             </h2>
             <p className="text-gray-900 text-xl text-center">
@@ -47,7 +47,7 @@ const Ourprocess = () => {
             <div className="bg-red-200 w-15 h-15 rounded-full flex justify-center  items-center">
               <p className="text-orange-700 font-bold text-3xl">1</p>
             </div>
-            <h2 className="text-[#408b82] font-bold text-3xl text-center my-4">
+            <h2 className="text-emerald-600 font-bold text-3xl text-center my-4">
               Analyzing & Optimizing
             </h2>
             <p className="text-gray-900 text-xl text-center">
