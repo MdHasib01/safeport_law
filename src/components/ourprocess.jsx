@@ -11,7 +11,7 @@ const Ourprocess = () => {
         correct credit report errors.
       </p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className=" max-w-[350px]">
+        <div className=" max-w-[350px] mx-auto">
           <div className="flex flex-col items-center ">
             <img src={icon1} alt="icon" className="w-28 h-28 mb-4" />
             <div className="bg-red-200 w-15 h-15 rounded-full flex justify-center  items-center">
@@ -26,7 +26,7 @@ const Ourprocess = () => {
             </p>
           </div>
         </div>
-        <div className=" max-w-[350px]">
+        <div className=" max-w-[350px] mx-auto">
           <div className="flex flex-col items-center ">
             <img src={icon2} alt="icon" className="w-28 h-28 mb-4" />
             <div className="bg-red-200 w-15 h-15 rounded-full flex justify-center  items-center">
@@ -41,7 +41,7 @@ const Ourprocess = () => {
             </p>
           </div>
         </div>
-        <div className=" max-w-[350px]">
+        <div className=" max-w-[350px] mx-auto">
           <div className="flex flex-col items-center ">
             <img src={icon3} alt="icon" className="w-28 h-28 mb-4" />
             <div className="bg-red-200 w-15 h-15 rounded-full flex justify-center  items-center">

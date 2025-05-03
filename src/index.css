@@ -8,5 +8,5 @@ body {
   @apply max-w-2xl md:max-w-4xl lg:max-w-6xl mx-auto px-8;
 }
 .btn-primary {
-  @apply bg-[#fc8937] text-white p-4 rounded-full  font-bold;
+  @apply bg-[#fc8937] text-white p-4 rounded-full  font-bold cursor-pointer hover:opacity-80 duration-300;
 }
