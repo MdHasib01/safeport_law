@@ -30,7 +30,7 @@ const Ourprocess = () => {
           <div className="flex flex-col items-center ">
             <img src={icon2} alt="icon" className="w-28 h-28 mb-4" />
             <div className="bg-red-200 w-15 h-15 rounded-full flex justify-center  items-center">
-              <p className="text-orange-700 font-bold text-3xl">1</p>
+              <p className="text-orange-700 font-bold text-3xl">2</p>
             </div>
             <h2 className="text-emerald-600 font-bold text-3xl text-center my-4">
               Reviewing
@@ -45,7 +45,7 @@ const Ourprocess = () => {
           <div className="flex flex-col items-center ">
             <img src={icon3} alt="icon" className="w-28 h-28 mb-4" />
             <div className="bg-red-200 w-15 h-15 rounded-full flex justify-center  items-center">
-              <p className="text-orange-700 font-bold text-3xl">1</p>
+              <p className="text-orange-700 font-bold text-3xl">3</p>
             </div>
             <h2 className="text-emerald-600 font-bold text-3xl text-center my-4">
               Analyzing & Optimizing
