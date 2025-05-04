@@ -56,30 +56,32 @@ const Banner = () => {
               We take your data protection seriously
             </p>
             <form>
-              <input
-                className="p-4 border border-gray-300 rounded-lg w-full mb-4"
-                type="text"
-                placeholder="First Name"
-                required
-              />
-              <input
-                className="p-4 border border-gray-300 rounded-lg w-full mb-4"
-                type="text"
-                placeholder="Last Name"
-                required
-              />
-              <input
-                className="p-4 border border-gray-300 rounded-lg w-full mb-4"
-                type="text"
-                placeholder="+1 (___) ___-____"
-                required
-              />
-              <input
-                className="p-4 border border-gray-300 rounded-lg w-full mb-4"
-                type="email"
-                placeholder="Email"
-                required
-              />
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                <input
+                  className="p-4 border border-gray-300 rounded-lg w-full "
+                  type="text"
+                  placeholder="First Name"
+                  required
+                />
+                <input
+                  className="p-4 border border-gray-300 rounded-lg w-full "
+                  type="text"
+                  placeholder="Last Name"
+                  required
+                />
+                <input
+                  className="p-4 border border-gray-300 rounded-lg w-full mb-4"
+                  type="text"
+                  placeholder="+1 (___) ___-____"
+                  required
+                />
+                <input
+                  className="p-4 border border-gray-300 rounded-lg w-full mb-4"
+                  type="email"
+                  placeholder="Email"
+                  required
+                />
+              </div>
               <select
                 name=""
                 id=""
