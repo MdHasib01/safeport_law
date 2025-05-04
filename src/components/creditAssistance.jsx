@@ -48,7 +48,7 @@ const CreditAssistance = () => {
             <p className="my-2 text-gray-700 font-semibold">
               Agressiveness: Very High
             </p>
-            <p className="text-5xl font-bold text-emerald-700 mt-8 mb-2">
+            <p className="text-3xl md:text-5xl font-bold text-emerald-700 mt-8 mb-2">
               $129.99<span className="text-black text-xl">/month</span>
             </p>
 
@@ -91,7 +91,7 @@ const CreditAssistance = () => {
             <p className="my-2 text-gray-700 font-semibold">
               Agressiveness: Cleanse
             </p>
-            <p className="text-5xl font-bold text-emerald-700 mt-8 mb-2">
+            <p className="  text-3xl mg:text-5xl font-bold text-emerald-700 mt-8 mb-2">
               $89.99<span className="text-black text-xl">/month</span>
             </p>
 
