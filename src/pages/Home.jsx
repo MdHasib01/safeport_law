@@ -4,6 +4,7 @@ import Brands from "../components/brands";
 import Ourprocess from "../components/ourprocess";
 import Navbar from "../components/shared/navbar";
 import MoneyBack from "../components/moneyBack";
+import WhySafeport from "../components/whySafeport";
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       <Brands />
       <Ourprocess />
       <MoneyBack />
+      <WhySafeport />
     </div>
   );
 };
