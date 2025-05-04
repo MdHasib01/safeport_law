@@ -7,4 +7,11 @@ export default defineConfig({
   build: {
     assetsInlineLimit: 0, // 🛑 Don't do this unless needed
   },
+  theme: {
+    extend: {
+      backgroundImage: {
+        "building-bg": "url('/public/woman-guarantee-block.png')",
+      },
+    },
+  },
 });

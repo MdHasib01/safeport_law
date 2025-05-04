@@ -10,12 +10,14 @@ const Navbar = () => {
         <div className="flex gap-8 items-center">
           <img src={logo} alt="" />
           <ul className="lg:flex gap-4 font-semibold hidden">
-            <li>Credit</li>
-            <li>Out Promise</li>
-            <li>FAQ</li>
+            <li className="cursor-pointer">Credit</li>
+            <li className="cursor-pointer">Out Promise</li>
+            <li className="cursor-pointer">FAQ</li>
           </ul>
         </div>
-        <button className="font-semibold hidden lg:block  ">Login</button>
+        <button className="font-semibold hidden lg:block  cursor-pointer">
+          Login
+        </button>
         <GiHamburgerMenu
           className="w-8 h-8 lg:hidden text-emerald-500"
           onClick={() => setOpen(true)}
