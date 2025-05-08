@@ -3,8 +3,11 @@ import trophy1 from "../assets/trophy/trophy-100magazine.svg";
 import trophy2 from "../assets/trophy/trophy-google.svg";
 import trophy3 from "../assets/trophy/trophy-90days.svg";
 import { FaLock } from "react-icons/fa";
+import { useSelector } from "react-redux";
 
 const Banner = () => {
+  const state = useSelector((state) => state);
+  console.log(state);
   return (
     <div className="py-20 bg-gradient-to-t from-emerald-200 to-emerald-50">
       <div className="container">
