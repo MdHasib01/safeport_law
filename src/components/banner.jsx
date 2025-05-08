@@ -3,11 +3,9 @@ import trophy1 from "../assets/trophy/trophy-100magazine.svg";
 import trophy2 from "../assets/trophy/trophy-google.svg";
 import trophy3 from "../assets/trophy/trophy-90days.svg";
 import { FaLock } from "react-icons/fa";
-import { useSelector } from "react-redux";
+import BannerRegisterForm from "./bannerRegisterForm";
 
 const Banner = () => {
-  const state = useSelector((state) => state);
-  console.log(state);
   return (
     <div className="py-20 bg-gradient-to-t from-emerald-200 to-emerald-50">
       <div className="container">
@@ -58,62 +56,7 @@ const Banner = () => {
               <FaLock className="text-emerald-600" />
               We take your data protection seriously
             </p>
-            <form>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                <input
-                  className="p-4 border border-gray-300 rounded-lg w-full "
-                  type="text"
-                  placeholder="First Name"
-                  required
-                />
-                <input
-                  className="p-4 border border-gray-300 rounded-lg w-full "
-                  type="text"
-                  placeholder="Last Name"
-                  required
-                />
-                <input
-                  className="p-4 border border-gray-300 rounded-lg w-full mb-4"
-                  type="text"
-                  placeholder="+1 (___) ___-____"
-                  required
-                />
-                <input
-                  className="p-4 border border-gray-300 rounded-lg w-full mb-4"
-                  type="email"
-                  placeholder="Email"
-                  required
-                />
-              </div>
-              <select
-                name=""
-                id=""
-                className="p-4 border border-gray-300 rounded-lg w-full mb-4"
-              >
-                <option value="">Alaska</option>
-                <option value="">Alabama</option>
-                <option value="">Arizona</option>
-                <option value="">Arkansas</option>
-                <option value="">California</option>
-                <option value="">Colorado</option>
-                <option value="">Connecticut</option>
-                <option value="">Delaware</option>
-                <option value="">Florida</option>
-                <option value="">Georgia</option>
-                <option value="">Hawaii</option>
-                <option value="">Idaho</option>
-                <option value="">Illinois</option>
-                <option value="">Indiana</option>
-                <option value="">Iowa</option>
-                <option value="">Kansas</option>
-                <option value="">Kentucky</option>
-                <option value="">Louisiana</option>
-                <option value="">Maine</option>
-                <option value="">Maryland</option>
-                <option value="">Massachusetts</option>
-              </select>
-              <button className="btn-primary w-full">Sign up now</button>
-            </form>
+            <BannerRegisterForm />
             <p className="text-justify text-xs text-gray-500 my-4">
               By clicking SIGN UP NOW you consent to be contacted at the above
               number or email by Safeport Law, LLC or its affiliates. This

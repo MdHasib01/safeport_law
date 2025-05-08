@@ -15,7 +15,7 @@ const Navbar = () => {
             <li className="cursor-pointer">FAQ</li>
           </ul>
         </div>
-        <button className="font-semibold hidden lg:block  cursor-pointer">
+        <button className="font-semibold hidden lg:block mr-4 cursor-pointer">
           Login
         </button>
         <GiHamburgerMenu
