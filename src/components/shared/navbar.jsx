@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import logo from "../../assets/safeportlaw-logo-with-text.svg";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaArrowRightLong } from "react-icons/fa6";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
@@ -22,9 +22,11 @@ const Navbar = () => {
             <li className="cursor-pointer">FAQ</li>
           </ul>
         </div>
-        <button className="font-semibold hidden lg:block mr-4 cursor-pointer">
-          Login
-        </button>
+        <Link to="/login">
+          <button className="font-semibold hidden lg:block mr-4 cursor-pointer">
+            Login
+          </button>
+        </Link>
         <GiHamburgerMenu
           className="w-8 h-8 lg:hidden text-emerald-500"
           onClick={() => setOpen(true)}
@@ -48,9 +50,11 @@ const Navbar = () => {
             <li>Out Promise</li>
             <li>FAQ</li>
             <li>
-              <button className="w-full rounded-full p-2 border font-semibold border-gray-300">
-                Login
-              </button>
+              <Link to="/login">
+                <button className="w-full rounded-full p-2 border font-semibold border-gray-300">
+                  Login
+                </button>
+              </Link>
             </li>
           </ul>
         </div>

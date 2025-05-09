@@ -1,39 +1,50 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import creditCards from "../../assets/creditcards.jpg";
+import { setPaymentInfoStore } from "../../store/features/registration/slice";
+const month = {
+  0: "Month",
+  1: "January",
+  2: "February",
+  3: "March",
+  4: "April",
+  5: "May",
+  6: "June",
+  7: "July",
+  8: "August",
+  9: "September",
+  10: "October",
+  11: "November",
+  12: "December",
+};
+const year = [
+  "year",
+  2025,
+  2026,
+  2027,
+  2028,
+  2029,
+  2030,
+  2031,
+  2032,
+  2033,
+  2034,
+  2035,
+  2036,
+];
 const PaymentSection = ({ setActiveTab }) => {
+  const dispatch = useDispatch();
   const personalInfo = useSelector((state) => state.registration.personalInfo);
-  console.log(personalInfo);
-  const month = [
-    "Month",
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-  const year = [
-    "year",
-    2025,
-    2026,
-    2027,
-    2028,
-    2029,
-    2030,
-    2031,
-    2032,
-    2033,
-    2034,
-    2035,
-    2036,
-  ];
+
+  const initialPaymentInfo = useSelector(
+    (state) => state.registration.paymentInfo
+  );
+  const [paymentInfo, setPaymentInfo] = React.useState(initialPaymentInfo);
+
+  const handleSubmit = () => {
+    dispatch(setPaymentInfoStore(paymentInfo));
+    setActiveTab();
+  };
   return (
     <div className="container my-20">
       <div className="flex flex-col md:flex-row md:justify-between">
@@ -61,18 +72,42 @@ const PaymentSection = ({ setActiveTab }) => {
                 type="text"
                 placeholder="____-____-____-____"
                 className="border rounded-3xl border-emerald-700 p-2"
+                value={paymentInfo.cardNumber}
+                onChange={(e) =>
+                  setPaymentInfo({
+                    ...paymentInfo,
+                    cardNumber: e.target.value,
+                  })
+                }
               />
             </div>
             <div className="grid grid-cols-4 gap-4 items-center">
               <label className="text-gray-600 col-span-2">
                 Expiration Date:
               </label>
-              <select className="border rounded-3xl border-emerald-700 p-2">
-                {month.map((item, index) => (
-                  <option key={index}>{item}</option>
+              <select
+                className="border rounded-3xl border-emerald-700 p-2"
+                value={paymentInfo.expiryMonth}
+                onChange={(e) =>
+                  setPaymentInfo({
+                    ...paymentInfo,
+                    expiryMonth: e.target.value,
+                  })
+                }
+              >
+                {Object.entries(month).map(([key, value]) => (
+                  <option key={key} value={key}>
+                    {value}
+                  </option>
                 ))}
               </select>
-              <select className="border rounded-3xl border-emerald-700 p-2">
+              <select
+                className="border rounded-3xl border-emerald-700 p-2"
+                value={paymentInfo.expiryYear}
+                onChange={(e) =>
+                  setPaymentInfo({ ...paymentInfo, expiryYear: e.target.value })
+                }
+              >
                 {year.map((item, index) => (
                   <option key={index}>{item}</option>
                 ))}
@@ -83,6 +118,10 @@ const PaymentSection = ({ setActiveTab }) => {
               <input
                 type="text"
                 placeholder="____"
+                value={paymentInfo.cvv}
+                onChange={(e) =>
+                  setPaymentInfo({ ...paymentInfo, cvv: e.target.value })
+                }
                 className="border rounded-3xl border-emerald-700 p-2"
               />
             </div>
@@ -90,12 +129,7 @@ const PaymentSection = ({ setActiveTab }) => {
         </div>
       </div>
       <div className="flex justify-center w-full">
-        <button
-          onClick={() => {
-            setActiveTab(4);
-          }}
-          className="btn-secondary w-48 my-8"
-        >
+        <button onClick={handleSubmit} className="btn-secondary w-48 my-8">
           Continue
         </button>
       </div>

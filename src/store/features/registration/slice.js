@@ -64,7 +64,12 @@ const initialState = {
     city: "",
     state: "",
   },
-  paymentInfo: {},
+  paymentInfo: {
+    cardNumber: "",
+    cvv: "",
+    expiryMonth: "",
+    expiryYear: "",
+  },
   selectedSrvice: 1,
   servicePlan: [
     {
@@ -88,7 +93,7 @@ export const registrationSlice = createSlice({
     setPersonalInfo: (state, action) => {
       state.personalInfo = action.payload;
     },
-    setPaymentInfo: (state, action) => {
+    setPaymentInfoStore: (state, action) => {
       state.paymentInfo = action.payload;
     },
     setSelectedSrvice: (state, action) => {
@@ -97,7 +102,7 @@ export const registrationSlice = createSlice({
   },
 });
 
-export const { setPersonalInfo, setPaymentInfo, setSelectedSrvice } =
+export const { setPersonalInfo, setPaymentInfoStore, setSelectedSrvice } =
   registrationSlice.actions;
 
 export default registrationSlice.reducer;

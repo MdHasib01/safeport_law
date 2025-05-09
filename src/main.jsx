@@ -5,6 +5,9 @@ import Home from "./pages/Home";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
 import Registration from "./pages/Registration";
+import PrivateRoutes from "./hooks/PrivateRoutes";
+import Chat from "./pages/Chat";
+import Login from "./pages/Login";
 
 const route = createBrowserRouter([
   {
@@ -14,6 +17,19 @@ const route = createBrowserRouter([
   {
     path: "/register",
     Component: Registration,
+  },
+  {
+    path: "/login",
+    Component: Login,
+  },
+  {
+    element: <PrivateRoutes />,
+    children: [
+      {
+        path: "/chat",
+        Component: Chat,
+      },
+    ],
   },
 ]);
 createRoot(document.getElementById("root")).render(

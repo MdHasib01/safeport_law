@@ -1,7 +1,23 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 
 const Agreement = () => {
   const [aggree, setAggree] = useState(false);
+  const info = useSelector((state) => state.registration);
+  console.log(info.personalInfo, info.paymentInfo);
+  const handleSubmit = () => {
+    fetch("http://localhost:8080/account/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        ...info.personalInfo,
+        ...info.paymentInfo,
+        selectedProgramme: info.selectedSrvice,
+      }),
+    });
+  };
   return (
     <div className="container">
       <h2 className="text-2xl text-[#fc8937] mb-4 font-bold mt-12">
@@ -33,7 +49,7 @@ const Agreement = () => {
       </div>
       <div className="flex justify-center w-full">
         <button
-          onClick={() => {}}
+          onClick={handleSubmit}
           className="btn-secondary opa w-48 my-8"
           disabled={!aggree}
         >

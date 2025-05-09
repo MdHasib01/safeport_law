@@ -53,6 +53,24 @@ const Personalinfo = ({ setActiveTab }) => {
             </p>
           </div>
           <div>
+            <label className="">Unit / Appartment</label>
+            <input
+              required
+              type="text"
+              value={personalInfo.appartment}
+              onChange={(e) => {
+                serPersonalInfo({
+                  ...personalInfo,
+                  appartment: e.target.value,
+                });
+              }}
+              className="w-full bg-white rounded-3xl border border-emerald-700 py-2 px-4 mt-2"
+            />
+            <p className="text-red-600 text-sm hidden">
+              Please enter your unit/appartment details
+            </p>
+          </div>
+          <div>
             <label className="">Zip Code</label>
             <input
               required
@@ -67,7 +85,7 @@ const Personalinfo = ({ setActiveTab }) => {
               Please enter your unit/appartment details
             </p>
           </div>
-          <div className="md:col-span-2">
+          <div>
             <label className="">City</label>
             <input
               required
@@ -88,7 +106,11 @@ const Personalinfo = ({ setActiveTab }) => {
               required
               name=""
               id=""
+              value={personalInfo.state}
               className="w-full bg-white rounded-3xl border border-emerald-700 py-2 px-4 mt-2"
+              onChange={(e) => {
+                serPersonalInfo({ ...personalInfo, state: e.target.value });
+              }}
             >
               {states.map((state, index) => (
                 <option key={index} value={state}>

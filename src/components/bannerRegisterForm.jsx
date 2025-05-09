@@ -61,10 +61,15 @@ const BannerRegisterForm = () => {
           required
         />
       </div>
+
       <select
         name=""
         id=""
         className="p-4 border border-gray-300 rounded-lg w-full mb-4"
+        value={personalInfo.state}
+        onChange={(e) =>
+          serPersonalInfo({ ...personalInfo, state: e.target.value })
+        }
       >
         {states.map((state, index) => (
           <option key={index} value={state}>
@@ -72,6 +77,7 @@ const BannerRegisterForm = () => {
           </option>
         ))}
       </select>
+
       <button type="submit" className="btn-primary w-full">
         Sign up now
       </button>
