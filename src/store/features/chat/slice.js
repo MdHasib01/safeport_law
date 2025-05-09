@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   questionNo: 0,
   tutorial: 1,
+  selectedQuestion: "",
 };
 
 const chatSlice = createSlice({
@@ -15,9 +16,13 @@ const chatSlice = createSlice({
     setTutorial: (state, action) => {
       state.tutorial = action.payload;
     },
+    setSelectedQuestion: (state, action) => {
+      state.selectedQuestion = action.payload;
+    },
   },
 });
 
-export const { setQuestionNo, setTutorial } = chatSlice.actions;
+export const { setQuestionNo, setTutorial, setSelectedQuestion } =
+  chatSlice.actions;
 
 export default chatSlice.reducer;

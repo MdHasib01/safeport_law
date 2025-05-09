@@ -3,7 +3,7 @@ import { GoHubot } from "react-icons/go";
 import { GrNext } from "react-icons/gr";
 import { useDispatch, useSelector } from "react-redux";
 import { setQuestionNo, setTutorial } from "../../store/features/chat/slice";
-
+import { IoMdSend } from "react-icons/io";
 const Tutorial = () => {
   const tutorial = useSelector((state) => state.chat.tutorial);
   const dispatch = useDispatch();
@@ -54,7 +54,9 @@ const Tutorial = () => {
                   disabled
                   placeholder="I am fine.."
                 />
-                <button className="btn-secondary w-20 !py-2">Send</button>
+                <button className="btn-secondary  !py-2 flex items-center gap-2 justify-center">
+                  Send <IoMdSend />
+                </button>
               </div>
             </div>
             <h2 className="text-emerald-100 font-bold mt-4 animate-bounce  ">
