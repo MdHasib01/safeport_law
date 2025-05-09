@@ -10,7 +10,6 @@ const TabSelection = ({ activeTab, setActiveTab }) => {
             className={` border border-emerald-600 ${
               activeTab === 1 ? "bg-emerald-600 text-white" : "text-emerald-600"
             } hover:bg-emerald-600 hover:text-white text-xl px-4 py-1 rounded mr-0 duration-300`}
-            onClick={() => setActiveTab(1)}
           >
             1. Contact Informations
           </span>
@@ -21,7 +20,6 @@ const TabSelection = ({ activeTab, setActiveTab }) => {
             className={` border border-emerald-600 ${
               activeTab === 2 ? "bg-emerald-600 text-white" : "text-emerald-600"
             } hover:bg-emerald-600 hover:text-white text-xl  px-4 py-1 rounded mr-0 duration-300`}
-            onClick={() => setActiveTab(2)}
           >
             2. Select Service Level
           </span>
@@ -32,7 +30,6 @@ const TabSelection = ({ activeTab, setActiveTab }) => {
             className={` border border-emerald-600 ${
               activeTab === 3 ? "bg-emerald-600 text-white" : "text-emerald-600"
             } hover:bg-emerald-600 hover:text-white text-xl px-4 py-1 rounded mr-0 duration-300`}
-            onClick={() => setActiveTab(3)}
           >
             3. Payment Details
           </span>
@@ -43,7 +40,6 @@ const TabSelection = ({ activeTab, setActiveTab }) => {
             className={` border border-emerald-600 ${
               activeTab === 4 ? "bg-emerald-600 text-white" : "text-emerald-600"
             } hover:bg-emerald-600 hover:text-white text-xl px-4 py-1 rounded mr-0 duration-300`}
-            onClick={() => setActiveTab(4)}
           >
             4. Agreement
           </span>
