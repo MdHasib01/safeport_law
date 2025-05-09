@@ -117,7 +117,7 @@ const Personalinfo = ({ setActiveTab }) => {
           </div>
         </div>
         <div className="flex justify-center w-full">
-          <button type="submit" disabled className="btn-secondary w-48 my-8">
+          <button type="submit" className="btn-secondary w-48 my-8">
             Continue
           </button>
         </div>
