@@ -2,13 +2,20 @@ import React, { useState } from "react";
 import logo from "../../assets/safeportlaw-logo-with-text.svg";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaArrowRightLong } from "react-icons/fa6";
+import { useNavigate } from "react-router";
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
   return (
     <div className="bg-emerald-50 pb-8 mx-4">
       <div className="container flex justify-between items-center bg-white px-4 py-8 rounded-b-3xl shadow-md">
         <div className="flex gap-8 items-center">
-          <img src={logo} alt="" />
+          <img
+            src={logo}
+            alt=""
+            className="cursor-pointer"
+            onClick={() => navigate("/")}
+          />
           <ul className="lg:flex gap-4 font-semibold hidden">
             <li className="cursor-pointer">Credit</li>
             <li className="cursor-pointer">Out Promise</li>

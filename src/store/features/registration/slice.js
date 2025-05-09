@@ -53,8 +53,31 @@ const states = [
 ];
 
 const initialState = {
-  personalInfo: {},
+  personalInfo: {
+    firstname: "",
+    lastname: "",
+    email: "",
+    phone: "",
+    homeAddress: "",
+    appartment: "",
+    zipCode: "",
+    city: "",
+    state: "",
+  },
   paymentInfo: {},
+  selectedSrvice: 1,
+  servicePlan: [
+    {
+      id: 1,
+      name: "Credit Cleanse+",
+      price: "$129.99",
+    },
+    {
+      id: 2,
+      name: "Credit Cleanse",
+      price: "$89.99",
+    },
+  ],
   states,
 };
 
@@ -68,9 +91,13 @@ export const registrationSlice = createSlice({
     setPaymentInfo: (state, action) => {
       state.paymentInfo = action.payload;
     },
+    setSelectedSrvice: (state, action) => {
+      state.selectedSrvice = action.payload;
+    },
   },
 });
 
-export const { setPersonalInfo, setPaymentInfo } = registrationSlice.actions;
+export const { setPersonalInfo, setPaymentInfo, setSelectedSrvice } =
+  registrationSlice.actions;
 
 export default registrationSlice.reducer;

@@ -8,25 +8,14 @@ const BannerRegisterForm = () => {
   const navigate = useNavigate();
   // Selectors
   const states = useSelector((state) => state.registration.states);
-  const personalinfo = useSelector((state) => state.registration.personalInfo);
 
-  const initialState = {
-    firstname: "",
-    lastname: "",
-    email: "",
-    phone: "",
-    homeAddress: "",
-    appartment: "",
-    zipCode: "",
-    city: "",
-    state: "",
-  };
+  const initialState = useSelector((state) => state.registration.personalInfo);
+
   const [personalInfo, serPersonalInfo] = useState(initialState);
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(setPersonalInfo(personalInfo));
     navigate("/register");
-    console.log(personalinfo);
   };
   return (
     <form onSubmit={handleSubmit}>
