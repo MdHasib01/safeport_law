@@ -4,6 +4,7 @@ import { GrNext } from "react-icons/gr";
 import { IoMdSend } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  setConversation,
   setQuestionNo,
   setSelectedQuestion,
 } from "../../store/features/chat/slice";
@@ -22,9 +23,10 @@ const questions = [
 ];
 const Questions = () => {
   const dispatch = useDispatch();
+
   const questionNo = useSelector((state) => state.chat.questionNo);
   const selectedQuestion = useSelector((state) => state.chat.selectedQuestion);
-  console.log(questionNo);
+  const conversation = useSelector((state) => state.chat.conversation);
   const firstName = "Md Hasib";
   const firstQuestion = `Hey there, ${firstName}! I see you’re interested in checking your business credit score. Ready to get started?`;
 
@@ -40,24 +42,33 @@ const Questions = () => {
     }
     return () => clearInterval(interval);
   }, [selectedQuestion, typeMessage, dispatch]);
-
+  const [answer, setAnswer] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    questionNo < 10 && dispatch(setQuestionNo(questionNo + 1));
+    setAnswer("");
+    questionNo < 11 && dispatch(setQuestionNo(questionNo + 1));
     questions[questionNo - 1] &&
       dispatch(setSelectedQuestion(questions[questionNo - 1]));
     setTypeMessage("");
+    dispatch(
+      setConversation({
+        question: questionNo === 1 ? firstQuestion : questions[questionNo - 1],
+        answer,
+      })
+    );
+    questionNo === 10 && console.log(conversation);
   };
   return (
     <div className="container">
-      <h2 className="text-3xl font-bold  text-emerald-700 text-center mt-8 mb-2">
+      <h2 className="text-3xl font-bold  text-emerald-700 text-center mt-4 mb-2">
         Welcome to Safeport Law
       </h2>
       <p className="text-xl text-center mb-20 text-[#bf5432]">
         Confirm Your Identity and Get Your Business Credit Score
       </p>
-      <h2>Question remaining: {10 - questionNo}</h2>
+      <h2 className="text-xl text-emerald-700 font-bold my-8">
+        Question remaining: {10 - questionNo}
+      </h2>
       <div className="flex justify-end ">
         <div className="flex gap-2">
           <h2 className="bg-emerald-100 border border-emerald-500 py-2 px-4 rounded-3xl min-w-40 max-w-sm md:max-w-md">
@@ -71,6 +82,8 @@ const Questions = () => {
           <textarea
             cols={"30"}
             rows={"5"}
+            value={answer}
+            onChange={(e) => setAnswer(e.target.value)}
             className="bg-emerald-100 border border-emerald-500 py-2 px-4 rounded-3xl"
             type="text"
             placeholder="Type your answer here"
@@ -79,13 +92,22 @@ const Questions = () => {
           Send <IoMdSend />
         </button> */}
         </div>
-        <div className="flex justify-center mt-12">
+        <div className="flex justify-center my-12">
           <button
             type="submit"
-            disabled={questionNo === 10}
-            className="btn-secondary flex items-center gap-2 justify-center"
+            className={`btn-secondary flex items-center gap-2 justify-center ${
+              questionNo === 10 && "hidden"
+            }`}
           >
             Next Question <GrNext />
+          </button>
+          <button
+            type="submit"
+            className={`btn-primary  w-32 items-center gap-2 justify-center ${
+              questionNo === 10 ? "flex" : "hidden"
+            }`}
+          >
+            Submit
           </button>
         </div>
       </form>

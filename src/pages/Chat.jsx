@@ -9,7 +9,13 @@ const Chat = () => {
   return (
     <div className="pt-28">
       <NavWIthoutLinks />
-      {questionNo === 0 ? <Tutorial /> : <Questions />}
+      {questionNo === 0 ? (
+        <Tutorial />
+      ) : questionNo === 11 ? (
+        <Tutorial />
+      ) : (
+        <Questions />
+      )}
     </div>
   );
 };
