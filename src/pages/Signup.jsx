@@ -13,9 +13,12 @@ const Login = () => {
       <div className="  grid grid-cols-1 md:grid-cols-2 mt-28">
         <div className="flex justify-center items-center container p-4">
           <div className="bg-white md:bg-gray-100 p-8 rounded-lg">
-            <h2 className="font-bold text-3xl text-emerald-600 mb-2">Login</h2>
-            <p className="text-gray-500 text-xl">
-              Log in to access your Safeport Law portal
+            <h2 className="font-bold text-4xl max-w-sm text-emerald-600 mb-2">
+              Let&#8217;s set up your account!
+            </h2>
+            <p className="text-xl max-w-md text-gray-500">
+              Enter your information below and we&#8217;ll send a verification
+              link to the email address your provide.
             </p>
             <form>
               <input
@@ -40,17 +43,35 @@ const Login = () => {
                   )}
                 </span>
               </div>
+              <div className="relative mb-4">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Confirm Password"
+                  className="border border-gray-300 rounded-lg w-full p-4 "
+                />
 
-              <p className="mt-2 mb-12">Forgot Password?</p>
-              <button className="btn btn-secondary w-full">Login</button>
+                <span className="absolute text-gray-600 w-5 h-5 right-4 top-1/2 transform -translate-y-1/2  2">
+                  {!showPassword ? (
+                    <LuEyeClosed
+                      onClick={() => setShowPassword(!showPassword)}
+                    />
+                  ) : (
+                    <LuEye onClick={() => setShowPassword(!showPassword)} />
+                  )}
+                </span>
+              </div>
+
+              <button className="btn btn-secondary w-full mt-8">Sign Up</button>
             </form>
             <p className="text-center mt-4">
-              Don&#8217;t have an account?{" "}
+              Already have an account?{" "}
               <span
                 className=" font-bold cursor-pointer"
-                onClick={() => navigate("/signup")}
+                onClick={() => {
+                  navigate("/login");
+                }}
               >
-                Create account now
+                Login
               </span>
             </p>
           </div>

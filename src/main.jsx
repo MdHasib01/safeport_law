@@ -8,6 +8,7 @@ import Registration from "./pages/Registration";
 import PrivateRoutes from "./hooks/PrivateRoutes";
 import Chat from "./pages/Chat";
 import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 
 const route = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const route = createBrowserRouter([
   {
     path: "/login",
     Component: Login,
+  },
+  {
+    path: "/signup",
+    Component: Signup,
   },
   {
     element: <PrivateRoutes />,
