@@ -80,6 +80,7 @@ const Questions = () => {
       <form onSubmit={handleSubmit}>
         <div className="flex flex-col gap-2 mt-12">
           <textarea
+            required
             cols={"30"}
             rows={"5"}
             value={answer}
