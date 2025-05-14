@@ -10,7 +10,7 @@ const Login = () => {
   return (
     <div>
       <NavWIthoutLinks />
-      <div className="  grid grid-cols-1 md:grid-cols-2 mt-28">
+      <div className="  grid grid-cols-1 md:grid-cols-2 mt-20">
         <div className="flex justify-center items-center container p-4">
           <div className="bg-white md:bg-gray-100 p-8 rounded-lg">
             <h2 className="font-bold text-4xl max-w-sm text-emerald-600 mb-2">
