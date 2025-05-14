@@ -4,8 +4,22 @@ import logo from "../assets/logo-footer.svg";
 import NavWIthoutLinks from "../components/shared/navWIthoutLinks";
 import { LuEye, LuEyeClosed } from "react-icons/lu";
 import { useNavigate } from "react-router";
+import { signup } from "../store/features/auth/api";
+import { useDispatch } from "react-redux";
 const Login = () => {
   const [showPassword, setShowPassword] = React.useState(false);
+  const dispatch = useDispatch();
+  const [password, setPassword] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await dispatch(signup({ email, password })).unwrap();
+      navigate("/login");
+    } catch (error) {
+      console.error("Signup failed:", error);
+    }
+  };
   const navigate = useNavigate();
   return (
     <div>
@@ -20,14 +34,20 @@ const Login = () => {
               Enter your information below and we&#8217;ll send a verification
               link to the email address your provide.
             </p>
-            <form>
+            <form onSubmit={handleSubmit}>
               <input
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 type="text"
                 placeholder="Email Address"
                 className="border border-gray-300 rounded-lg w-full p-4 my-4 "
               />
               <div className="relative mb-4">
                 <input
+                  required
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   type={showPassword ? "text" : "password"}
                   placeholder="Password"
                   className="border border-gray-300 rounded-lg w-full p-4 "
@@ -45,6 +65,7 @@ const Login = () => {
               </div>
               <div className="relative mb-4">
                 <input
+                  required
                   type={showPassword ? "text" : "password"}
                   placeholder="Confirm Password"
                   className="border border-gray-300 rounded-lg w-full p-4 "

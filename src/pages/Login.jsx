@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import loginbg from "../assets/portal_login-bg__sp.png";
 import logo from "../assets/logo-footer.svg";
 import NavWIthoutLinks from "../components/shared/navWIthoutLinks";
@@ -7,9 +7,9 @@ import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
 import { login } from "../store/features/auth/api";
 const Login = () => {
-  const [showPassword, setShowPassword] = React.useState(false);
-  const [password, setPassword] = React.useState("");
-  const [email, setEmail] = React.useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleSubmit = async (e) => {
@@ -36,11 +36,13 @@ const Login = () => {
                 type="text"
                 placeholder="Email Address"
                 value={email}
+                required
                 onChange={(e) => setEmail(e.target.value)}
                 className="border border-gray-300 rounded-lg w-full p-4 my-4 "
               />
               <div className="relative mb-4">
                 <input
+                  required
                   type={showPassword ? "text" : "password"}
                   placeholder="Password"
                   value={password}
