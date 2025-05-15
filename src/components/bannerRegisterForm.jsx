@@ -66,7 +66,7 @@ const BannerRegisterForm = () => {
         name=""
         id=""
         className="p-4 border border-gray-300 rounded-lg w-full mb-4"
-        value={personalInfo.state}
+        value={personalInfo.state || states[1]}
         onChange={(e) =>
           serPersonalInfo({ ...personalInfo, state: e.target.value })
         }
