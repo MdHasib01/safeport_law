@@ -34,6 +34,10 @@ const route = createBrowserRouter([
         path: "/chat",
         Component: Chat,
       },
+      {
+        path: "/chat/:token",
+        Component: Chat,
+      },
     ],
   },
 ]);

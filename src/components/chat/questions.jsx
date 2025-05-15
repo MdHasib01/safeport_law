@@ -27,7 +27,7 @@ const Questions = () => {
   const questionNo = useSelector((state) => state.chat.questionNo);
   const selectedQuestion = useSelector((state) => state.chat.selectedQuestion);
   const conversation = useSelector((state) => state.chat.conversation);
-  const firstName = "Md Hasib";
+  const firstName = "Raufun Khan Shishir";
   const firstQuestion = `Hey there, ${firstName}! I see you’re interested in checking your business credit score. Ready to get started?`;
 
   const [typeMessage, setTypeMessage] = useState("");

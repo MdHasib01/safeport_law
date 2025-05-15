@@ -4,6 +4,7 @@ export const config = {
   routes: {
     login: "user/login",
     signup: "user/signup",
+    accountRegister: "account/register",
     verifyToken: "user/verifyToken",
   },
 };

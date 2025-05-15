@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import { config } from "../../utils/config";
 
 const Agreement = () => {
   const [aggree, setAggree] = useState(false);
   const info = useSelector((state) => state.registration);
   console.log(info.personalInfo, info.paymentInfo);
   const handleSubmit = () => {
-    fetch("http://localhost:8080/account/register", {
+    fetch(`${config.baseURL}/${config.routes.accountRegister}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
