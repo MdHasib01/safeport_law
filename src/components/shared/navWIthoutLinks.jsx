@@ -4,6 +4,7 @@ import logo from "../../assets/safeportlaw-logo-with-text.svg";
 import { useDispatch } from "react-redux";
 import { logout } from "../../store/features/auth/slice";
 import useIsLoggedIn from "../../hooks/useIsLoggedIn";
+import { IoIosLogOut } from "react-icons/io";
 
 const NavWIthoutLinks = () => {
   const navigate = useNavigate();
@@ -22,13 +23,13 @@ const NavWIthoutLinks = () => {
           <div>
             {userLoggedIn && (
               <button
-                className="btn-secondary w-28"
+                className=" items-center gap-2 font-semibold hidden lg:flex mr-4 cursor-pointer border px-4 py-1 text-emerald-600 border-emerald-600 rounded-3xl"
                 onClick={() => {
                   dispatch(logout());
                   navigate("/");
                 }}
               >
-                Log out
+                Log out <IoIosLogOut />
               </button>
             )}
           </div>

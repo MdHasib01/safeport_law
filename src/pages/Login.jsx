@@ -4,14 +4,16 @@ import logo from "../assets/logo-footer.svg";
 import NavWIthoutLinks from "../components/shared/navWIthoutLinks";
 import { LuEye, LuEyeClosed } from "react-icons/lu";
 import { useNavigate } from "react-router";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { login } from "../store/features/auth/api";
+import { LiaSpinnerSolid } from "react-icons/lia";
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const loading = useSelector((state) => state.auth.loading);
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -66,7 +68,15 @@ const Login = () => {
               </div>
 
               <p className="mt-2 mb-12">Forgot Password?</p>
-              <button className="btn btn-secondary w-full">Login</button>
+              <button
+                className="btn btn-secondary w-full flex justify-center items-center gap-2"
+                disabled={loading}
+              >
+                Login
+                {loading && (
+                  <LiaSpinnerSolid className="animate-spin w-6 h-6" />
+                )}
+              </button>
             </form>
             <p className="text-center mt-4">
               Don&#8217;t have an account?{" "}
