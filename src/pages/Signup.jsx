@@ -5,16 +5,22 @@ import NavWIthoutLinks from "../components/shared/navWIthoutLinks";
 import { LuEye, LuEyeClosed } from "react-icons/lu";
 import { useNavigate } from "react-router";
 import { signup } from "../store/features/auth/api";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 const Login = () => {
   const [showPassword, setShowPassword] = React.useState(false);
   const dispatch = useDispatch();
+  const selectedEmail = useSelector(
+    (state) => state.registration.personalInfo.email
+  );
+  console.log(selectedEmail);
   const [password, setPassword] = React.useState("");
   const [email, setEmail] = React.useState("");
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await dispatch(signup({ email, password })).unwrap();
+      await dispatch(
+        signup({ email: email || selectedEmail, password })
+      ).unwrap();
       navigate("/login");
     } catch (error) {
       console.error("Signup failed:", error);
@@ -37,7 +43,7 @@ const Login = () => {
             <form onSubmit={handleSubmit}>
               <input
                 required
-                value={email}
+                value={email || selectedEmail}
                 onChange={(e) => setEmail(e.target.value)}
                 type="text"
                 placeholder="Email Address"

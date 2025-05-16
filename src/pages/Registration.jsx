@@ -17,7 +17,7 @@ const Registration = () => {
       {activeTab === 1 ? (
         <Personalinfo setActiveTab={setActiveTab} />
       ) : activeTab === 2 ? (
-        <ServiceSelection setActiveTab={setActiveTab} />
+        <Agreement />
       ) : activeTab === 3 ? (
         <PaymentSection setActiveTab={setActiveTab} />
       ) : (

@@ -1,23 +1,16 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
-import { config } from "../../utils/config";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router";
+import { createAccount } from "../../store/features/registration/api";
 
 const Agreement = () => {
   const [aggree, setAggree] = useState(false);
   const info = useSelector((state) => state.registration);
+  const navigate = useNavigate();
   console.log(info.personalInfo, info.paymentInfo);
+  const dispatch = useDispatch();
   const handleSubmit = () => {
-    fetch(`${config.baseURL}/${config.routes.accountRegister}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        ...info.personalInfo,
-        ...info.paymentInfo,
-        selectedProgramme: info.selectedSrvice,
-      }),
-    });
+    dispatch(createAccount({ payload: info.personalInfo, navigate }));
   };
   return (
     <div className="container">

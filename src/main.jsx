@@ -1,6 +1,8 @@
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Home from "./pages/Home";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
@@ -28,14 +30,14 @@ const route = createBrowserRouter([
     Component: Signup,
   },
   {
+    path: "/chat/:token",
+    Component: Chat,
+  },
+  {
     element: <PrivateRoutes />,
     children: [
       {
         path: "/chat",
-        Component: Chat,
-      },
-      {
-        path: "/chat/:token",
         Component: Chat,
       },
     ],
@@ -43,6 +45,7 @@ const route = createBrowserRouter([
 ]);
 createRoot(document.getElementById("root")).render(
   <Provider store={store}>
+    <ToastContainer position="bottom-right" />
     <RouterProvider router={route} />
   </Provider>
 );

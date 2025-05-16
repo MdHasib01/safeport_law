@@ -15,8 +15,12 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await dispatch(login({ email, password })).unwrap();
-      navigate("/chat");
+      await dispatch(login({ email, password }))
+        .unwrap()
+        .then(() => {
+          navigate("/chat");
+        })
+        .catch();
     } catch (error) {
       console.error("Login failed:", error);
     }

@@ -17,7 +17,7 @@ const Tutorial = () => {
   }, [typeMessage]);
   return (
     <div className="">
-      <div className="bg-gray-700 opacity-70 absolute top-0 left-0 z-50 h-screen w-screen"></div>
+      <div className="bg-gray-700 opacity-70 absolute top-0 left-0 z-50 h-full w-full"></div>
       <div className="container">
         <div className="flex justify-center mb-20">
           <h2 className="text-xl border  border-emerald-200 py-2 px-4 rounded-3xl border-dashed font-bold text-emerald-200 z-999 absolute ">

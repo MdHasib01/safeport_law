@@ -43,6 +43,7 @@ const BannerRegisterForm = () => {
         <input
           className="p-4 border border-gray-300 rounded-lg w-full mb-4"
           type="text"
+          name="phone"
           placeholder="+1 (___) ___-____"
           value={personalInfo.phone}
           onChange={(e) =>
@@ -53,6 +54,7 @@ const BannerRegisterForm = () => {
         <input
           className="p-4 border border-gray-300 rounded-lg w-full mb-4"
           type="email"
+          name="email"
           placeholder="Email"
           value={personalInfo.email}
           onChange={(e) =>
@@ -66,7 +68,7 @@ const BannerRegisterForm = () => {
         name=""
         id=""
         className="p-4 border border-gray-300 rounded-lg w-full mb-4"
-        value={personalInfo.state || states[1]}
+        value={personalInfo.state}
         onChange={(e) =>
           serPersonalInfo({ ...personalInfo, state: e.target.value })
         }

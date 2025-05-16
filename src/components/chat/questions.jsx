@@ -27,8 +27,9 @@ const Questions = () => {
   const questionNo = useSelector((state) => state.chat.questionNo);
   const selectedQuestion = useSelector((state) => state.chat.selectedQuestion);
   const conversation = useSelector((state) => state.chat.conversation);
-  const firstName = "Raufun Khan Shishir";
-  const firstQuestion = `Hey there, ${firstName}! I see you’re interested in checking your business credit score. Ready to get started?`;
+  const user = useSelector((state) => state.auth.user);
+  const name = `${user?.firstname} ${user?.lastname}`;
+  const firstQuestion = `Hey there, ${name}! I see you’re interested in checking your business credit score. Ready to get started?`;
 
   const [typeMessage, setTypeMessage] = useState("");
   useEffect(() => {
@@ -61,7 +62,7 @@ const Questions = () => {
   return (
     <div className="container">
       <h2 className="text-3xl font-bold  text-emerald-700 text-center mt-4 mb-2">
-        Welcome to Safeport Law
+        Welcome to Safeport Law Chat
       </h2>
       <p className="text-xl text-center mb-20 text-[#bf5432]">
         Confirm Your Identity and Get Your Business Credit Score

@@ -4,8 +4,14 @@ import trophy2 from "../assets/trophy/trophy-google.svg";
 import trophy3 from "../assets/trophy/trophy-90days.svg";
 import { FaLock } from "react-icons/fa";
 import BannerRegisterForm from "./bannerRegisterForm";
+import Chat from "../pages/Chat";
+import useIsLoggedIn from "../hooks/useIsLoggedIn";
+import { useSelector } from "react-redux";
+import { LiaSpinnerSolid } from "react-icons/lia";
 
 const Banner = () => {
+  const isLoggedIn = useIsLoggedIn();
+  const loading = useSelector((state) => state.auth.loading);
   return (
     <div className="py-20 bg-gradient-to-t from-emerald-200 to-emerald-50">
       <div className="container">
@@ -48,30 +54,41 @@ const Banner = () => {
               />
             </div>
           </div>
-          <div className=" bg-white px-8 py-4 rounded-lg shadow-xl">
-            <h2 className="text-center text-emerald-600 font-bold text-3xl mb-2">
-              Get started today!
-            </h2>
-            <p className="text-sm text-gray-500 mb-2 flex items-center justify-center gap-2">
-              <FaLock className="text-emerald-600" />
-              We take your data protection seriously
-            </p>
-            <BannerRegisterForm />
-            <p className="text-justify text-xs text-gray-500 my-4">
-              By clicking SIGN UP NOW you consent to be contacted at the above
-              number or email by Safeport Law, LLC or its affiliates. This
-              request will be dialed and responded to automatically, in some
-              cases with pre-recorded messages for efficiency or via
-              AI/Artificial voice calls. Consenting is not a required condition
-              of purchase. No purchase is necessary by way of this consent and
-              the call is free - no obligation! You also consent to receive
-              text/SMS messages subject to your carrier’s cellular rates. If you
-              do not consent, please call the number at the top of your screen.
-              You understand by clicking on the button, you agree you are
-              providing “written instructions” to Array and its partners to send
-              you transactional messages for identify verification purposes.
-            </p>
-          </div>
+          {loading ? (
+            <div className="flex justify-center items-center">
+              <LiaSpinnerSolid className="animate-spin text-emerald-600 w-12 h-12" />
+            </div>
+          ) : !isLoggedIn ? (
+            <div className=" bg-white px-8 py-4 rounded-lg shadow-xl">
+              <h2 className="text-center text-emerald-600 font-bold text-3xl mb-2">
+                Get started today!
+              </h2>
+              <p className="text-sm text-gray-500 mb-2 flex items-center justify-center gap-2">
+                <FaLock className="text-emerald-600" />
+                We take your data protection seriously
+              </p>
+              <BannerRegisterForm />
+              <p className="text-justify text-xs text-gray-500 my-4">
+                By clicking SIGN UP NOW you consent to be contacted at the above
+                number or email by Safeport Law, LLC or its affiliates. This
+                request will be dialed and responded to automatically, in some
+                cases with pre-recorded messages for efficiency or via
+                AI/Artificial voice calls. Consenting is not a required
+                condition of purchase. No purchase is necessary by way of this
+                consent and the call is free - no obligation! You also consent
+                to receive text/SMS messages subject to your carrier’s cellular
+                rates. If you do not consent, please call the number at the top
+                of your screen. You understand by clicking on the button, you
+                agree you are providing “written instructions” to Array and its
+                partners to send you transactional messages for identify
+                verification purposes.
+              </p>
+            </div>
+          ) : (
+            <div className="relative p-4 rounded-lg overflow-hidden border border-emerald-300 shadow-xl">
+              <Chat homepage={true} />
+            </div>
+          )}
         </div>
       </div>
     </div>

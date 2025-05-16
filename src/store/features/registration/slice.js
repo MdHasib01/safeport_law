@@ -1,4 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { createAccount } from "./api";
+import { toast } from "react-toastify";
 const states = [
   "Alabama",
   "Alaska",
@@ -62,7 +64,7 @@ const initialState = {
     appartment: "",
     zipCode: "",
     city: "",
-    state: "",
+    state: states[0],
   },
   paymentInfo: {
     cardNumber: "",
@@ -84,6 +86,7 @@ const initialState = {
     },
   ],
   states,
+  loading: false,
 };
 
 export const registrationSlice = createSlice({
@@ -99,6 +102,20 @@ export const registrationSlice = createSlice({
     setSelectedSrvice: (state, action) => {
       state.selectedSrvice = action.payload;
     },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(createAccount.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(createAccount.fulfilled, (state) => {
+        state.loading = false;
+        toast.success("Account created successfully");
+      })
+      .addCase(createAccount.rejected, (state, action) => {
+        state.loading = false;
+        toast.error(action.payload || "Something went wrong");
+      });
   },
 });
 
