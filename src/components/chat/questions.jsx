@@ -8,6 +8,7 @@ import {
   setQuestionNo,
   setSelectedQuestion,
 } from "../../store/features/chat/slice";
+import { generateCreditScore } from "../../store/features/chat/api";
 
 const questions = [
   "Awesome! What’s the exact name of your business?",
@@ -28,6 +29,7 @@ const Questions = () => {
   const selectedQuestion = useSelector((state) => state.chat.selectedQuestion);
   const conversation = useSelector((state) => state.chat.conversation);
   const user = useSelector((state) => state.auth.user);
+  console.log(user);
   const name = `${user?.firstname} ${user?.lastname}`;
   const firstQuestion = `Hey there, ${name}! I see you’re interested in checking your business credit score. Ready to get started?`;
 
@@ -57,7 +59,7 @@ const Questions = () => {
         answer,
       })
     );
-    questionNo === 10 && console.log(conversation);
+    questionNo === 10 && dispatch(generateCreditScore(conversation));
   };
   return (
     <div className="container">

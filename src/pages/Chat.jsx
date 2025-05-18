@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import NavWIthoutLinks from "../components/shared/navWIthoutLinks";
 import Tutorial from "../components/chat/tutorial";
 import Questions from "../components/chat/questions";
+import CreditScore from "../components/chat/creditScore";
 
 const Chat = ({ homepage }) => {
   const questionNo = useSelector((state) => state.chat.questionNo);
@@ -12,7 +13,7 @@ const Chat = ({ homepage }) => {
       {questionNo === 0 ? (
         <Tutorial />
       ) : questionNo === 11 ? (
-        <Tutorial />
+        <CreditScore />
       ) : (
         <Questions />
       )}

@@ -110,7 +110,18 @@ export const registrationSlice = createSlice({
       })
       .addCase(createAccount.fulfilled, (state) => {
         state.loading = false;
-        toast.success("Account created successfully");
+        (state.personalInfo = {
+          firstname: "",
+          lastname: "",
+          email: state.personalInfo.email,
+          phone: "",
+          homeAddress: "",
+          appartment: "",
+          zipCode: "",
+          city: "",
+          state: states[0],
+        }),
+          toast.success("Account created successfully");
       })
       .addCase(createAccount.rejected, (state, action) => {
         state.loading = false;
