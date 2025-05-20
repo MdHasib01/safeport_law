@@ -73,7 +73,7 @@ const Navbar = () => {
             <li>Out Promise</li>
             <li>FAQ</li>
             <li>
-              {isLoggedIn ? (
+              {!isLoggedIn ? (
                 <Link to="/login">
                   <button className="w-full rounded-full p-2 border font-semibold border-gray-300">
                     Login
