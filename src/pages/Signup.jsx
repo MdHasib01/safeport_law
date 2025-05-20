@@ -6,6 +6,7 @@ import { LuEye, LuEyeClosed } from "react-icons/lu";
 import { useNavigate } from "react-router";
 import { signup } from "../store/features/auth/api";
 import { useDispatch, useSelector } from "react-redux";
+import { LiaSpinnerSolid } from "react-icons/lia";
 const Login = () => {
   const [showPassword, setShowPassword] = React.useState(false);
   const dispatch = useDispatch();
@@ -15,6 +16,7 @@ const Login = () => {
   console.log(selectedEmail);
   const [password, setPassword] = React.useState("");
   const [email, setEmail] = React.useState("");
+  const loading = useSelector((state) => state.auth.loading);
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -88,7 +90,15 @@ const Login = () => {
                 </span>
               </div>
 
-              <button className="btn btn-secondary w-full mt-8">Sign Up</button>
+              <button
+                className="btn btn-secondary w-full mt-8 flex items-center"
+                disabled={loading}
+              >
+                Sign Up
+                {loading && (
+                  <LiaSpinnerSolid className="animate-spin w-6 h-6" />
+                )}
+              </button>
             </form>
             <p className="text-center mt-4">
               Already have an account?{" "}
